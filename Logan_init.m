@@ -243,7 +243,6 @@ disp(' ');
 % Note: These proportions may vary depending on the mission profile and 
 % specific design of the aircraft.
 
-
 % Massa: 90,718.4 kg
 % Envergadura (Span): 18.288 m
 % Área da Asa: 334.73 m²
