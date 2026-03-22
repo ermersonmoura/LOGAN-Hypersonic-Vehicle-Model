@@ -17,13 +17,13 @@ In addition to the inner control loops, the model includes outer-loop autopilot 
 
 The main dimensions of the conceptual LOGAN vehicle are shown in the figure below.
 
-<p align="center"> <img src="Images/Dimensions.svg" width="800"> </p> <p align="center"> <em>Figure 1. Conceptual dimensions of the LOGAN hypersonic vehicle.</em> </p>
+<p align="center"> <img src="Images/Dimensions.png" width="800"> </p> <p align="center"> <em>Figure 1. Conceptual dimensions of the LOGAN hypersonic vehicle.</em> </p>
 
 # Scramjet Engine Model Discretization
 
 The discretization and integration of the one-dimensional scramjet engine model within the overall framework are illustrated in the figure below.
 
-<p align="center"> <img src="Images/ScramjetEngine_integration.svg" width="800"> </p> <p align="center"> <em>Figure 2. Scramjet engine model discretization and integration.</em> </p>
+<p align="center"> <img src="Images/ScramjetEngine_integration.png" width="800"> </p> <p align="center"> <em>Figure 2. Scramjet engine model discretization and integration.</em> </p>
 
 # Mission Concept
 
@@ -31,19 +31,19 @@ The LOGAN model was developed assuming a boost-to-scramjet mission concept. In t
 
 The conceptual mission profile is illustrated in the figure below.
 
-<p align="center"> <img src="Images/ConceptualMission.svg" width="800"> </p> <p align="center"> <em>Figure 3. Conceptual mission profile of the LOGAN vehicle.</em> </p>
+<p align="center"> <img src="Images/ConceptualMission.png" width="800"> </p> <p align="center"> <em>Figure 3. Conceptual mission profile of the LOGAN vehicle.</em> </p>
 
 # Integrated Simulink Architecture
 
 The complete block diagram showing the correlations and interactions among all LOGAN subsystems, as implemented in logan.slx, is presented below.
 
-<p align="center"> <img src="Images/Full_Diagram.svg" width="900"> </p> <p align="center"> <em>Figure 4. Full integrated architecture of the LOGAN Simulink model.</em> </p>
+<p align="center"> <img src="Images/Full_Diagram.png" width="900"> </p> <p align="center"> <em>Figure 4. Full integrated architecture of the LOGAN Simulink model.</em> </p>
 
 # FlightGear Integration
 
 The LOGAN model supports real-time visualization through integration with the FlightGear flight simulator. The integration architecture is shown in the figure below.
 
-<p align="center"> <img src="Images/IntegratedModel.svg" width="900"> </p> <p align="center"> <em>Figure 5. Integration between the LOGAN model and FlightGear.</em> </p>
+<p align="center"> <img src="Images/IntegratedModel.png" width="900"> </p> <p align="center"> <em>Figure 5. Integration between the LOGAN model and FlightGear.</em> </p>
 
 To run the FlightGear integration, execute the runfg.bat script outside MATLAB. This script initializes the communication between the Simulink model and FlightGear.
 
