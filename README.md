@@ -188,5 +188,15 @@ Moura, E. F., and Ribeiro, G. B., 2026. Thermodynamic–dynamic coupling and exe
 DOI: 10.1016/j.ast.2025.110869
 Available at: https://www.sciencedirect.com/science/article/abs/pii/S1270963825009332
 
-Conceptual View of the LOGAN Vehicle
+## License
+
+This project is provided for academic and research purposes only.
+
+Commercial use, redistribution, or modification of the source code is not
+permitted without explicit authorization from the author.
+
+See the LICENSE file for details.
+
+# Conceptual View of the LOGAN Vehicle
+
 <p align="center"> <img src="Images/ConceptualLoganView.svg" width="900"> </p> <p align="center"> <em>Figure 7. Conceptual view of the LOGAN hypersonic waverider vehicle.</em> </p>
