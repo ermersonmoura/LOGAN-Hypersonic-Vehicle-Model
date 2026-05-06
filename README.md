@@ -166,6 +166,11 @@ Light: 21,000 kg
 
 For detailed information regarding the modeling framework, flight dynamics formulation, propulsion integration, and control system design adopted in the LOGAN model, the reader is referred to the following works:
 
+Moura, E. F., and Ribeiro, G. B., 2026. Thermodynamic–dynamic coupling and exergy analysis during transient maneuvers of a hypersonic vehicle. Aerospace Science and Technology, Vol. 168, Article 110869.
+DOI: 10.1016/j.ast.2025.110869 Available at: https://www.sciencedirect.com/science/article/abs/pii/S1270963825009332
+
+Moura, E. F., and Ribeiro, G. B., 2026. Aerodynamic and dynamic analysis of a hypersonic waverider with a coupled dynamic–thermodynamic model. Aerospace Science and Technology, Article 112481. DOI: 10.1016/j.ast.2026.112481 Available at: https://www.sciencedirect.com/science/article/pii/S1270963826008618
+
 Moura, E. F., 2025. A Fully Integrated Thermodynamic and Dynamic Model for Hypersonic Vehicle Simulation. Ph.D. Thesis, Space Science and Technology, Aeronautical Institute of Technology, São José dos Campos, Brazil.
 Available at: https://www.researchgate.net/publication/396219376_A_FULLY_INTEGRATED_THERMODYNAMIC_AND_DYNAMIC_MODEL_FOR_HYPERSONIC_VEHICLE_SIMULATION
 
@@ -183,10 +188,6 @@ Available at: https://www.researchgate.net/publication/397649782_HYPERSONIC_WAVE
 
 Moura, E. F., and Ribeiro, G. B., 2025e. Total Energy Control System for a Hypersonic Waverider Vehicle. Proceedings of the 28th ABCM International Congress of Mechanical Engineering (COBEM 2025), Curitiba, Brazil, November 9–13, Paper ID: COBEM2025-1499.
 Available at: https://www.researchgate.net/publication/397650860_TOTAL_ENERGY_CONTROL_SYSTEM_FOR_A_HYPERSONIC_WAVERIDER_VEHICLE
-
-Moura, E. F., and Ribeiro, G. B., 2026. Thermodynamic–dynamic coupling and exergy analysis during transient maneuvers of a hypersonic vehicle. Aerospace Science and Technology, Vol. 168, Article 110869.
-DOI: 10.1016/j.ast.2025.110869
-Available at: https://www.sciencedirect.com/science/article/abs/pii/S1270963825009332
 
 ## License
 
