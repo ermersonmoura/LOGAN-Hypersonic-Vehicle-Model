@@ -1,13 +1,13 @@
 # LOGAN Hypersonic Vehicle Model
 
-High-fidelity flight dynamics and scramjet-integrated simulation framework for a hypersonic vehicle.
+Flight dynamics and scramjet-integrated simulation framework for a hypersonic vehicle.
 <p align="center">
   <img src="Images/LoganSimulation.gif" width="900">
 </p>
 
 # LOGAN Model Overview
 
-The LOGAN (Large Over-Mach Glider Aircraft New-generation) model is a high-fidelity flight dynamics framework coupled with a thermodynamic scramjet engine model. The overall architecture integrates vehicle dynamics, propulsion, guidance, navigation, and control within a unified simulation environment.
+The LOGAN (Large Over-Mach Glider Aircraft New-generation) model is a flight dynamics framework coupled with a thermodynamic scramjet engine model. The overall architecture integrates vehicle dynamics, propulsion, guidance, navigation, and control within a unified simulation environment.
 
 The vehicle dynamics model is formulated with six degrees of freedom (6-DoF), while the scramjet engine is represented by a one-dimensional thermodynamic model. The system operates in closed loop along all axes, including longitudinal, lateral-directional, and propulsion dynamics.
 
