@@ -191,6 +191,13 @@ Available at: https://www.researchgate.net/publication/397649782_HYPERSONIC_WAVE
 Moura, E. F., and Ribeiro, G. B., 2025e. Total Energy Control System for a Hypersonic Waverider Vehicle. Proceedings of the 28th ABCM International Congress of Mechanical Engineering (COBEM 2025), Curitiba, Brazil, November 9–13, Paper ID: COBEM2025-1499.
 Available at: https://www.researchgate.net/publication/397650860_TOTAL_ENERGY_CONTROL_SYSTEM_FOR_A_HYPERSONIC_WAVERIDER_VEHICLE
 
+## Software Registration
+
+INPI Registration No. BR 51 2026 004179-1
+
+[![INPI](https://img.shields.io/badge/INPI-Registered%20Software-red)](https://revistas.inpi.gov.br/pdf/Programa_de_computador2892.pdf)
+
+
 ## Zenodo
 
 The LOGAN model is archived on Zenodo:
