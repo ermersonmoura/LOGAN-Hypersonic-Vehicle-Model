@@ -1,6 +1,7 @@
 # LOGAN Hypersonic Vehicle Model
 
 Flight dynamics and scramjet-integrated simulation framework for a hypersonic vehicle.
+
 <p align="center">
   <img src="Images/LoganSimulation.gif" width="900">
 </p>
@@ -162,6 +163,7 @@ Medium: 27,500 kg
 
 Light: 21,000 kg
 
+
  # References and Further Reading
 
 For detailed information regarding the modeling framework, flight dynamics formulation, propulsion integration, and control system design adopted in the LOGAN model, the reader is referred to the following works:
@@ -188,6 +190,12 @@ Available at: https://www.researchgate.net/publication/397649782_HYPERSONIC_WAVE
 
 Moura, E. F., and Ribeiro, G. B., 2025e. Total Energy Control System for a Hypersonic Waverider Vehicle. Proceedings of the 28th ABCM International Congress of Mechanical Engineering (COBEM 2025), Curitiba, Brazil, November 9–13, Paper ID: COBEM2025-1499.
 Available at: https://www.researchgate.net/publication/397650860_TOTAL_ENERGY_CONTROL_SYSTEM_FOR_A_HYPERSONIC_WAVERIDER_VEHICLE
+
+## Zenodo
+
+The LOGAN model is archived on Zenodo:
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21633571.svg)](https://doi.org/10.5281/zenodo.21633571)
 
 ## License
 
