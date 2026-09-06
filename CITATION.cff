@@ -1,0 +1,76 @@
+cff-version: "1.2.0"
+
+title: "LOGAN Hypersonic Vehicle Model"
+version: "1.0.0"
+
+authors:
+- family-names: de Moura
+  given-names: Ermerson F.
+
+doi: "10.5281/zenodo.21633571"
+
+license: "BSD-3-Clause"
+
+repository-code: "https://github.com/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model"
+
+message: "If you use the LOGAN Hypersonic Vehicle Model in your research, please cite the software and, when relevant, the publications describing the specific components of the model."
+
+preferred-citation:
+  authors:
+  - family-names: de Moura
+    given-names: Ermerson F.
+  date-released: 2026-03-19
+  doi: "10.5281/zenodo.21633571"
+  publisher:
+    name: Zenodo
+  title: "LOGAN Hypersonic Vehicle Model"
+  type: software
+  url: "https://doi.org/10.5281/zenodo.21633571"
+
+references:
+
+- authors:
+  - family-names: Moura
+    given-names: Ermerson F.
+  - family-names: Ribeiro
+    given-names: Guilherme B.
+  title: "Thermodynamic–dynamic coupling and exergy analysis during transient maneuvers of a hypersonic vehicle"
+  year: 2026
+  doi: "10.1016/j.ast.2025.110869"
+  journal: "Aerospace Science and Technology"
+  volume: 168
+  start: 110869
+  type: article
+
+- authors:
+  - family-names: de Moura
+    given-names: Ermerson F.
+  - family-names: Ribeiro
+    given-names: Guilherme B.
+  title: "Aerodynamic and dynamic analysis of a hypersonic waverider with a coupled dynamic–thermodynamic model"
+  year: 2026
+  doi: "10.1016/j.ast.2026.112481"
+  journal: "Aerospace Science and Technology"
+  volume: 178
+  start: 112481
+  type: article
+
+- authors:
+  - family-names: de Moura
+    given-names: Ermerson F.
+  - family-names: Ribeiro
+    given-names: Guilherme B.
+  title: "Transient thermodynamic–dynamic modeling and exergy analysis of a waverider hypersonic vehicle"
+  year: 2026
+  doi: "10.1007/s42401-026-00510-0"
+  journal: "Aerospace Systems"
+  type: article
+
+
+- authors:
+  - family-names: de Moura
+    given-names: Ermerson F.
+  title: "A fully integrated thermodynamic and dynamic model for hypersonic vehicle simulation"
+  year: 2025
+  type: thesis
+  url: "https://doi.org/10.13140/RG.2.2.25090.95682"

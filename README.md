@@ -1,10 +1,32 @@
-# LOGAN Hypersonic Vehicle Model
+<br><br>
 
-Flight dynamics and scramjet-integrated simulation framework for a hypersonic vehicle.
+# LOGAN <img src="Images/LOGAN_badge.svg" alt="Logo" align="right" height="250" style="margin-top: -75px;">
+
+<!-- badges: start -->
+
+[![Status](https://img.shields.io/badge/Status-Active-2EAD4B)](https://github.com/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model)
+[![GitHub release](https://img.shields.io/github/v/release/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model)](https://github.com/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model/releases/latest)
+[![License](https://img.shields.io/github/license/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model)](https://github.com/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model/blob/main/LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21633571.svg)](https://doi.org/10.5281/zenodo.21633571)
+[![INPI](https://img.shields.io/badge/INPI-Registered%20Software-red)](https://revistas.inpi.gov.br/pdf/Programa_de_computador2892.pdf)
+[![View LOGAN on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](#)
+
+<!-- badges: end -->
+
+The **LOGAN Hypersonic Vehicle Model** is a fully integrated dynamic and thermodynamic framework for the simulation, analysis, and control of the LOGAN hypersonic vehicle.
+
+<br clear="right">
+
+
+<br>
 
 <p align="center">
   <img src="Images/LoganSimulation.gif" width="900">
 </p>
+
+# How to Cite
+
+For information on how to cite the LOGAN model and the scientific publications underlying its formulation and subsystems, please consult the [**CITATION GUIDELINES**](HOW_TO_CITE.md).
 
 # LOGAN Model Overview
 
@@ -46,173 +68,246 @@ The LOGAN model supports real-time visualization through integration with the Fl
 
 <p align="center"> <img src="Images/IntegratedModel.png" width="900"> </p> <p align="center"> <em>Figure 5. Integration between the LOGAN model and FlightGear.</em> </p>
 
-To run the FlightGear integration, execute the runfg.bat script outside MATLAB. This script initializes the communication between the Simulink model and FlightGear.
+> **Note:** Detailed instructions for configuring and running the FlightGear integration are provided in the [**FlightGear Configuration**](#flightgear-configuration) section.
 
-# ⚠️ Important notes:
+# Prerequisites
 
-Correct configuration of the local FlightGear installation is required.
+The LOGAN model was developed and tested using the following software and MATLAB environment:
 
-The reference setup was tested using FlightGear version 2020.3.
+| Software | Version |
+|---|---|
+| MATLAB | R2024b |
+| Simulink | R2024b |
+| Aerospace Toolbox | R2024b |
+| FlightGear Simulator | 2020.3.17 |
 
-In the current release, the vehicle .ac geometry file is not provided. A generic .ac file must be generated if full visual fidelity is desired.
+> **Note:** The model is expected to operate normally with newer MATLAB versions, provided that the Simulink model is converted to the corresponding version. FlightGear 2024.1 is also expected to be compatible with the LOGAN framework.
 
-The model was developed and tested using MATLAB R2024b.
+# FlightGear Configuration
 
-FlightGear is an open-source flight simulator, offering high flexibility and allowing extensive customization for advanced visualization and integration, as illustrated below.
+The LOGAN framework can be integrated with the FlightGear flight simulator for three-dimensional visualization of the simulated vehicle. The following steps describe the configuration required to run FlightGear with the LOGAN Simulink model.
 
-<p align="center"> <img src="Images/FlightGear_LoadScreen.png" width="700"> </p> <p align="center"> <em>Figure 6. FlightGear environment used for LOGAN visualization.</em> </p>
+The `runfg.bat` file included with the LOGAN model contains the configuration required to launch FlightGear. Before running the simulation, edit this file to match the FlightGear installation path on your computer. For example:
+
+~~~bat
+C:\FlightGear 2020.3
+~~~
+
+The `runfg.bat` file can also be modified to enable additional FlightGear options, such as sound, clouds, and other simulation settings. For further information, please refer to the [**FlightGear Wiki**](https://wiki.flightgear.org/Main_Page).
+
+> **Note:** The **Generate Run Script** block available under `Logan/Avionics` is provided by the Aerospace Toolbox and contains an example configuration. The example shown in the Simulink model is not specific to LOGAN; the `runfg.bat` file included with this project has already been configured for LOGAN and only requires adjustments to your local installation and desired FlightGear options.
+
+To configure the generic LOGAN aircraft, locate the `Logan` folder inside the `FG_files` directory of the repository and copy it into the `Aircraft` directory of your FlightGear installation:
+
+~~~text
+<FlightGear installation directory>\data\Aircraft
+~~~
+
+> **Note:** The exact location of the `Aircraft` directory depends on the FlightGear version and the installation path on your computer.
+
+Inside `Logan/Models`, the `Logan.ac` file contains the three-dimensional geometry used for visualization.
+
+> **Note:** The `Logan.ac` geometry is provided for visualization purposes only. It is a generic representation of the vehicle and is not intended to reproduce the latest vehicle configuration with complete geometric fidelity.
+
+The `Logan-set.xml` and `Logan.xml` files contain basic FlightGear configuration parameters and can be edited to modify the available settings. This allows different configurations to be implemented according to the user's requirements. In the current version, these files contain the generic vehicle geometry and a default visualization configuration.
+
+Once the configuration is complete, right-click the `runfg.bat` file and select `Open Outside MATLAB` to launch FlightGear with the configured LOGAN environment. A FlightGear window will then open and begin loading the simulation environment, as shown in Figure 6.
+
+<p align="center">
+  <img src="Images/FlightGear_LoadScreen.png" width="700">
+</p>
+<p align="center">
+  <em>Figure 6. FlightGear environment used for LOGAN visualization.</em>
+</p>
+
+Once FlightGear is fully loaded and the simulation is running, the LOGAN vehicle can be visualized in the simulator. Press `V` to change the camera view and `H` to enable the Head-Up Display (HUD).
+
+<p align="center">
+  <img src="Images/Logan-FGS.gif" width="700">
+</p>
+<p align="center">
+  <em>Figure 7. LOGAN vehicle visualization in FlightGear.</em>
+</p>
 
 # How to Run the Model
 
-The recommended execution workflow is as follows:
+The LOGAN model is composed of MATLAB scripts, Simulink models, and pre-computed trim data. The main files and their respective functions are summarized below.
 
-Run the script Logan_init.m
+| File | Description |
+|---|---|
+| `Logan_init.m` | Initializes the model by loading the vehicle dimensional parameters, moments of inertia, physical properties, and autopilot configurations. |
+| `Logan_trim.m` | Performs the aircraft trim procedure by defining the vehicle mass, altitude, Mach number, and center of gravity (CG). |
+| `TrimDatabase_Logan.mat` | Contains pre-computed trim points for Mach numbers from 5 to 10 and altitudes from 50,000 to 100,000 ft, within the defined flight envelope. |
+| `acess_trimFiles.m` | Provides a convenient interface for selecting and loading predefined trim conditions from `TrimDatabase_Logan.mat`. It can also be used as an example for developing batch simulations. |
+| `Logan.slx` | Main Simulink model containing the vehicle equations of motion and the interactions among the different subsystems. |
+| `Logan_sim.m` | Example MATLAB script for running batch simulations and generating simulation results and plots. |
+| `FlightEnvelope.fig` | Flight-envelope figure showing the trim points available for the LOGAN model. |
+| `Vn_diagram.fig` | Conceptual example of the vehicle's V–n diagram. |
 
-This script loads all global model parameters and allows modification of:
+The `Logan_init.m` script should be executed first. It loads the main vehicle parameters and provides the initial configuration required by the model, including dimensional properties, moments of inertia, and autopilot settings.
 
-Reference mass
-Moments of inertia
-Autopilot configuration
-Control modes and flags
+The `Logan_trim.m` script is used to trim the aircraft by defining the vehicle mass, altitude, Mach number, and center of gravity (CG). The following mass conditions were adopted as the primary design points for the vehicle and its flight-control system:
 
-Open the Main Model Logan.slx
+| Configuration | Vehicle Mass |
+|---|---:|
+| Light | 21,000 kg |
+| Medium | 27,500 kg |
+| Heavy | 31,000 kg |
 
-This is the main model where the equations of motion and subsystem interactions are solved. For trim computation execute Logan_trim_m.
+The light, medium, and heavy configurations were selected as design points, representing the aircraft’s weight-envelope boundary and nominal conditions. Other aircraft masses may also be used in simulations within the range from 18,500 kg to 31,000 kg, where 18,500 kg represents the structural mass and therefore corresponds to zero onboard fuel. Fuel consumption is enabled by default and is governed by the fuel mass flow rate. During the simulation, the vehicle mass decreases according to the fuel consumption, while the moments of inertia are scaled proportionally to the vehicle mass fraction.
 
-In this script, the following parameters must be specified:
+> **Note:** Care must be taken when modifying the center of gravity, as changing the **CG position** may result in unstable trim conditions.
 
-Center of gravity position
-Vehicle mass
-Trim altitude
-Mach number
+To facilitate model execution and reduce simulation time, a database of pre-computed trim conditions is provided in `TrimDatabase_Logan.mat`. The database contains trim points for Mach numbers ranging from 5 to 10 and altitudes from 50,000 to 100,000 ft, according to the defined flight-envelope constraints. Refer to this file for the available trim conditions.
 
-⚠️ Care must be taken when modifying the center of gravity, as certain CG positions may result in unstable trim conditions.
+The `acess_trimFiles.m` script provides an example of how to select and load predefined trim conditions from the database. It can also be adapted for automated or batch simulations using different trim conditions.
 
-# Simulation Execution
+The complete LOGAN model and its subsystems were developed in Simulink. Standard Simulink blocks are used throughout the model, while specific subsystems, such as the propulsion system, also incorporate `MATLAB Function` blocks for the implementation of dedicated computational routines.
 
-After trimming, simulations can be executed. Directly from the Simulink interface, or by running the example script:
+Once the aircraft has been trimmed, the simulation can be started directly from the Simulink interface by pressing `Play` and selecting the desired simulation time.
 
-Logan_sim.m
+> **Note:** The Simulink pacing is configured to allow simulations to run faster than real time. To visualize the simulation in real time, set the pacing value to `1`.
 
+For three-dimensional visualization, open `Logan.slx`, load the `logan_int` configuration, and either perform a new trim or load a predefined trim condition using `acess_trimFiles.m`. Then execute the `runfg.bat` script to launch FlightGear and press `Play` in Simulink. The resulting FlightGear visualization is described in the [**FlightGear Configuration**](#flightgear-configuration) section.
+
+The model can also be executed through MATLAB scripts, which facilitates batch simulations and automated result generation. The `Logan_sim.m` script provides an example of this approach. Running this script executes a 300 s simulation and generates several plots, including the aircraft dynamic response, engine thermodynamic response, and other simulation results.
+
+The execution of `Logan_sim.m` is expected to produce the example results shown below.
+
+<p align="center">
+  <img src="Images/LoganPlots.gif" width="700">
+</p>
+<p align="center">
+  <em>Figure 8. Example simulation results generated by Logan_sim.m.</em>
+</p>
+
+If the simulation does not work as expected after following these instructions, or if you have any questions, please [**contact us by email**](mailto:ermerson@ita.br). If you identify a bug, please refer to the [**contributing guidelines**](CONTRIBUTING.md) for information on how to report it.
+
+## Cheatsheet
+
+The cheat sheet below provides a quick reference for configuring and running the LOGAN model.
+
+<a href="https://github.com/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model/tree/main/Images/Cheat_Sheet.pdf"><img src="Images/Cheat_Sheet.png" width="400" height="250"/></a>
 
 # Autopilot Modes
 
-Longitudinal Autopilot
+The LOGAN model includes longitudinal and lateral-directional autopilot modes, which can be selected through the corresponding configuration variables in `Logan_init.m`.
 
-The longitudinal autopilot includes the following modes:
+### Longitudinal Autopilot
 
-Mode 0: Disabled
+| Mode | Description |
+|---:|---|
+| 0 | Disabled |
+| 1 | Theta tracking |
+| 2 | Altitude hold |
+| 3 | Flight-path angle (`gamma`) tracking |
 
-Mode 1: Theta tracking mode
+To select the longitudinal autopilot mode, set the `PA_LongMode` variable in `Logan_init.m`. The corresponding reference can be defined using the following parameters:
 
-Mode 2: Altitude hold mode
+| Variable | Description |
+|---|---|
+| `AltPoint` | Reference altitude for altitude-hold mode. |
+| `ThetaPoint` | Reference pitch angle (`theta`) for theta-tracking mode. |
+| `GammaRef_deg` | Reference flight-path angle (`gamma`) for flight-path angle tracking. |
 
-Mode 3: Flight-path angle (gamma) tracking mode
+The LOGAN vehicle operates in the hypersonic regime with low angles of attack and therefore typically tracks small flight-path angles. This behavior was intentionally adopted to maintain appropriate scramjet inlet spill-flow conditions.
 
-The LOGAN vehicle operates in a hypersonic regime with low angles of attack, and therefore typically tracks small flight-path angles. This behavior was intentionally adopted to ensure proper scramjet inlet spill-flow conditions. To select the longitudinal mode, modify the variable PA_LongMode in Logan_init.m.
+### Lateral-Directional Autopilot
 
-Lateral Autopilot
+| Mode | Description |
+|---:|---|
+| 0 | Disabled |
+| 1 | Bank-angle tracking |
+| 2 | Waypoint navigation |
 
-The lateral autopilot includes the following modes:
+To select the lateral-directional autopilot mode, set the `PA_LatMode` variable in `Logan_init.m`.
 
-Mode 0: Disabled
+For bank-angle tracking, the reference bank angle is defined using `PhiPoint`.
 
-Mode 1: Bank angle tracking
-
-Mode 2: Waypoint navigation
-
-For waypoint navigation, latitude and longitude coordinates are defined using the Waypoints matrix. The variable waypoint_idx specifies the target waypoint index.
+For waypoint navigation, latitude and longitude coordinates are specified in the `Waypoints` matrix, while `Waypoint_idx` selects the active waypoint from the list.
 
 Example:
 
+~~~matlab
 Waypoints = [
-    35.6895, 139.6917;   % Tokyo
-    55.7558, 37.6173;    % Moscow
-    48.8566, 2.3522;     % Paris
-    51.5074, -0.1278;    % London
-    45.5017, -73.5673;   % Montreal
-    40.7128, -74.0060;   % New York
-    34.0522, -118.2437;  % Los Angeles
-    -23.5505, -46.6333;  % São Paulo
-    -82.8628, 135.0000;  % Antarctica
-    -33.9249, 18.4241;   % Cape Town
-    -8.0476, -34.8770;   % Recife
+    35.6895, 139.6917;    % Tokyo
+    55.7558, 37.6173;     % Moscow
+    48.8566, 2.3522;      % Paris
+    51.5074, -0.1278;     % London
+    45.5017, -73.5673;    % Montreal
+    40.7128, -74.0060;    % New York
+    34.0522, -118.2437;   % Los Angeles
+    -23.5505, -46.6333;   % São Paulo
+    -82.8628, 135.0000;   % Antarctica
+    -33.9249, 18.4241;    % Cape Town
+    -8.0476, -34.8770;    % Recife
 ];
+~~~
 
-Additional Model Options
+### Engine Control
 
-The LOGAN framework also includes:
+The engine control mode is selected using `PA_EngineMode`:
 
-A simplified TECS (Total Energy Control System)
+| Mode | Description |
+|---:|---|
+| 0 | Mach-tracking control disabled |
+| 1 | Mach-tracking control enabled |
 
-Enable using the flag TECS_ON = 1
+The `MachPoint` variable defines the Mach reference used by the engine control system.
 
-Additional configurable options in Logan_init.m include:
+### Total Energy Control System (TECS)
 
-Manual control using a joystick (manual control block must be uncommented)
+The LOGAN framework includes a simplified Total Energy Control System (TECS), which can be enabled using `TECS_ON = 1`.
 
-Trimming enable/disable
+The `PA_TECSEngineInput` variable provides the acceleration/deceleration reference to the TECS loop.
 
-Fuel consumption freeze using Fuel_freeze
+# Model Flags and Options
 
-The aircraft mass can also be selected among predefined configurations:
+Additional model features can be configured through the following flags in `Logan_init.m`.
 
-Heavy: 31,000 kg
+| Option | Flag | Description |
+|---|---|---|
+| Manual Control | `Manual_Control` | Enables manual control using a joystick. Set the flag to `1` and uncomment the manual-control block in the Simulink model. |
+| Trimming | `Trimming` | Enables the trimming procedure when set to `1`. |
+| Fuel Freeze | `Fuel_Freeze` | Freezes fuel consumption when set to `1`. |
 
-Medium: 27,500 kg
 
-Light: 21,000 kg
-
-
- # References and Further Reading
+# References and Further Reading
 
 For detailed information regarding the modeling framework, flight dynamics formulation, propulsion integration, and control system design adopted in the LOGAN model, the reader is referred to the following works:
 
-Moura, E. F., and Ribeiro, G. B., 2026. Thermodynamic–dynamic coupling and exergy analysis during transient maneuvers of a hypersonic vehicle. Aerospace Science and Technology, Vol. 168, Article 110869.
-DOI: 10.1016/j.ast.2025.110869 Available at: https://www.sciencedirect.com/science/article/abs/pii/S1270963825009332
+Moura, E.F. and Ribeiro, G.B. (2026) ‘Thermodynamic–dynamic coupling and exergy analysis during transient maneuvers of a hypersonic vehicle’, Aerospace Science and Technology, 168, 110869. Available at: https://doi.org/10.1016/j.ast.2025.110869
 
-Moura, E. F., and Ribeiro, G. B., 2026. Aerodynamic and dynamic analysis of a hypersonic waverider with a coupled dynamic–thermodynamic model. Aerospace Science and Technology, Article 112481. DOI: 10.1016/j.ast.2026.112481 Available at: https://www.sciencedirect.com/science/article/pii/S1270963826008618
+Moura, E.F. and Ribeiro, G.B. (2026) ‘Aerodynamic and dynamic analysis of a hypersonic waverider with a coupled dynamic–thermodynamic model’, Aerospace Science and Technology, 178, 112481. Available at: https://doi.org/10.1016/j.ast.2026.112481
 
-Moura, E. F., 2025. A Fully Integrated Thermodynamic and Dynamic Model for Hypersonic Vehicle Simulation. Ph.D. Thesis, Space Science and Technology, Aeronautical Institute of Technology, São José dos Campos, Brazil.
-Available at: https://www.researchgate.net/publication/396219376_A_FULLY_INTEGRATED_THERMODYNAMIC_AND_DYNAMIC_MODEL_FOR_HYPERSONIC_VEHICLE_SIMULATION
+Moura, E.F. and Ribeiro, G.B. (2026) ‘Transient thermodynamic–dynamic modeling and exergy analysis of a waverider hypersonic vehicle’, Aerospace Systems, pp. 1–22. Available at: https://doi.org/10.1007/s42401-026-00510-0
 
-Moura, E. F., and Ribeiro, G. B., 2025a. Flight Control Longitudinal Law for a Hypersonic Waverider Vehicle. Proceedings of the 28th ABCM International Congress of Mechanical Engineering (COBEM 2025), Curitiba, Brazil, November 9–13, Paper ID: COBEM2025-0300.
-Available at: https://www.researchgate.net/publication/397635304_FLIGHT_CONTROL_LONGITUDINAL_LAW_FOR_A_HYPERSONIC_WAVERIDER_VEHICLE
+Moura, E.F. (2025) ‘A fully integrated thermodynamic and dynamic model for hypersonic vehicle simulation’. PhD thesis, Space Science and Technology, Aeronautical Institute of Technology, São José dos Campos, Brazil. Available at: https://doi.org/10.13140/RG.2.2.25090.95682
 
-Moura, E. F., and Ribeiro, G. B., 2025b. Hypersonic Waverider Vehicle Flight Control Lateral-Directional Law Implementation. Proceedings of the 28th ABCM International Congress of Mechanical Engineering (COBEM 2025), Curitiba, Brazil, November 9–13, Paper ID: COBEM2025-0360.
-Available at: https://www.researchgate.net/publication/397635842_HYPERSONIC_WAVERIDER_VEHICLE_FLIGHT_CONTROL_LATERAL-DIRECTIONAL_LAW_IMPLEMENTATION
+Moura, E.F. and Ribeiro, G.B. (2025) ‘Flight control longitudinal law for a hypersonic waverider vehicle’. Proceedings of the 28th ABCM International Congress of Mechanical Engineering (COBEM 2025), Curitiba, Brazil, 9–13 November. Paper ID: COBEM2025-0300. Available at: https://doi.org/10.26678/ABCM.COBEM2025.COB2025-0300
 
-Moura, E. F., and Ribeiro, G. B., 2025c. Scramjet Engine Control Law for a Hypersonic Waverider Vehicle. Proceedings of the 28th ABCM International Congress of Mechanical Engineering (COBEM 2025), Curitiba, Brazil, November 9–13, Paper ID: COBEM2025-1480.
-Available at: https://www.researchgate.net/publication/397651015_SCRAMJET_ENGINE_CONTROL_LAW_FOR_A_HYPERSONIC_WAVERIDER_VEHICLE
+Moura, E.F. and Ribeiro, G.B. (2025) ‘Hypersonic waverider vehicle flight control lateral-directional law implementation’. Proceedings of the 28th ABCM International Congress of Mechanical Engineering (COBEM 2025), Curitiba, Brazil, 9–13 November. Paper ID: COBEM2025-0360. Available at: https://doi.org/10.26678/ABCM.COBEM2025.COB2025-0360
 
-Moura, E. F., and Ribeiro, G. B., 2025d. Hypersonic Waverider Vehicle Flight Control Autopilot System Design and Implementation. Proceedings of the 28th ABCM International Congress of Mechanical Engineering (COBEM 2025), Curitiba, Brazil, November 9–13, Paper ID: COBEM2025-1507.
-Available at: https://www.researchgate.net/publication/397649782_HYPERSONIC_WAVERIDER_VEHICLE_FLIGHT_CONTROL_AUTOPILOT_SYSTEM_DESIGN_AND_IMPLEMENTATION
+Moura, E.F. and Ribeiro, G.B. (2025) ‘Scramjet engine control law for a hypersonic waverider vehicle’. Proceedings of the 28th ABCM International Congress of Mechanical Engineering (COBEM 2025), Curitiba, Brazil, 9–13 November. Paper ID: COBEM2025-1480. Available at: https://doi.org/10.26678/ABCM.COBEM2025.COB2025-1480
 
-Moura, E. F., and Ribeiro, G. B., 2025e. Total Energy Control System for a Hypersonic Waverider Vehicle. Proceedings of the 28th ABCM International Congress of Mechanical Engineering (COBEM 2025), Curitiba, Brazil, November 9–13, Paper ID: COBEM2025-1499.
-Available at: https://www.researchgate.net/publication/397650860_TOTAL_ENERGY_CONTROL_SYSTEM_FOR_A_HYPERSONIC_WAVERIDER_VEHICLE
+Moura, E.F. and Ribeiro, G.B. (2025) ‘Hypersonic waverider vehicle flight control autopilot system design and implementation’. Proceedings of the 28th ABCM International Congress of Mechanical Engineering (COBEM 2025), Curitiba, Brazil, 9–13 November. Paper ID: COBEM2025-1507. Available at: https://doi.org/10.26678/ABCM.COBEM2025.COB2025-1507
 
-## Software Registration
+Moura, E.F. and Ribeiro, G.B. (2025) ‘Total energy control system for a hypersonic waverider vehicle’. Proceedings of the 28th ABCM International Congress of Mechanical Engineering (COBEM 2025), Curitiba, Brazil, 9–13 November. Paper ID: COBEM2025-1499. Available at: https://doi.org/10.26678/ABCM.COBEM2025.COB2025-1499
 
-INPI Registration No. BR 51 2026 004179-1
+Moura, E.F. and Ribeiro, G.B. (2026) ‘Cooling system model integrated into the complete simulation framework of a hypersonic vehicle’. Proceedings of the 8th Escola de Verão de Refrigeração, São José dos Campos, Brazil, 23–25 February. Available at: https://doi.org/10.26678/ABCM.EVR2026.EVR26-0014
 
-[![INPI](https://img.shields.io/badge/INPI-Registered%20Software-red)](https://revistas.inpi.gov.br/pdf/Programa_de_computador2892.pdf)
+# License
 
+LOGAN is licensed under the BSD 3-Clause License. See [**LICENSE**](https://github.com/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model/blob/main/LICENSE) for details.
 
-## Zenodo
+# How to Contribute
 
-The LOGAN model is archived on Zenodo:
+Interested in contributing to the LOGAN project or reporting an issue? Please see the [**CONTRIBUTING GUIDELINES**](CONTRIBUTING.md) for further information.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21633571.svg)](https://doi.org/10.5281/zenodo.21633571)
+# LOGAN Vehicle Conceptual View
 
-## License
+<p align="center"> <img src="Images/ConceptualLoganView.svg" width="900"> </p> <p align="center"> <em>Figure 9. Conceptual view of the LOGAN hypersonic waverider vehicle.</em> </p>
 
-This project is provided for academic and research purposes only.
+---- 
 
-Commercial use, redistribution, or modification of the source code is not
-permitted without explicit authorization from the author.
-
-See the LICENSE file for details.
-
-# Conceptual View of the LOGAN Vehicle
-
-<p align="center"> <img src="Images/ConceptualLoganView.svg" width="900"> </p> <p align="center"> <em>Figure 7. Conceptual view of the LOGAN hypersonic waverider vehicle.</em> </p>
+![Footer](/images/ITA_logo.svg)

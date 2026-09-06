@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <sim>
+  <description>LOGAN</description>
+
+  <flight-model>network</flight-model>
+
+  <model>
+    <path>Aircraft/Logan/Models/Logan.xml</path>
+  </model>
+
+  <systems>
+   <electrical>
+    <path>Aircraft/Generic/generic-electrical.xml</path>
+   </electrical>
+  </systems> 
+  
+   <!-- Adicionando tela de carregamento -->
+  <previews>
+    <preview>
+      <type>exterior</type>
+      <path>Previews/Logan.png</path>
+      <splash type="bool">true</splash>
+    </preview>
+  </previews>
+  
+
+ </sim>
+
+</PropertyList>

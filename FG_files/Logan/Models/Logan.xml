@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+ LOGAN Hypersonic Vehicle Model
+ Open-source integrated 6-DOF flight dynamics and scramjet simulation
+ $Revision: 1.0 $
+ Copyright 2026 Ermerson Ferreira de Moura
+
+ Ermerson Ferreira de Moura
+ 2026-AUG-30
+************************************************************************
+-->
+
+<PropertyList>
+
+ <path>Logan.ac</path>
+
+
+
+</PropertyList>
+
