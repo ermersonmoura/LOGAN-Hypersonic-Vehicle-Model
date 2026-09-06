@@ -310,4 +310,4 @@ Interested in contributing to the LOGAN project or reporting an issue? Please se
 
 ---- 
 
-![Footer](/images/ITA_logo.svg)
+![Footer](/Images/ITA_logo.svg)
