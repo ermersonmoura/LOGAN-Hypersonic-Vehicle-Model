@@ -1,6 +1,6 @@
 <br><br>
 
-# LOGAN <img src="Images/LOGAN_badge.svg" alt="Logo" align="right" height="250" style="margin-top: -75px;">
+# LOGAN <img src="Images/LOGAN_badge.svg" alt="Logo" align="right" height="180" style="margin-top: -75px;">
 
 <!-- badges: start -->
 
