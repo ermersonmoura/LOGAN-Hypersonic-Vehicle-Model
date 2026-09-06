@@ -46,13 +46,7 @@ The coupling between these domains is particularly relevant for air-breathing hy
 # LOGAN Model Overview
 The LOGAN vehicle is a conceptual air-breathing hypersonic waverider that couples nonlinear six-degree-of-freedom (6-DoF) flight dynamics with a one-dimensional scramjet thermodynamic model. The vehicle is 22.5 m long, has a 9 m wingspan, and a maximum mass of 31,000 kg, including 18,500 kg of structural mass. The conceptual mission profile is illustrated below.
 
-<p align="center">
-  <img src="Images/ConceptualMission.png" width="800">
-</p>
-
-<p align="center">
-  <em>Figure 1. Conceptual mission profile of the LOGAN hypersonic vehicle.</em>
-</p>
+![LOGAN hypersonic vehicle Conceptual mission profile.](Images/ConceptualMission.png)
 
 The flight dynamics are described by the standard nonlinear six-degree-of-freedom (6-DoF) rigid-body formulation [@EtkinReid1996; @Nelson1998]. The state vector is
 
@@ -64,26 +58,15 @@ $$
 The vehicle dynamics are obtained from the coupled resolution of the aerodynamic and propulsive forces and moments acting on the vehicle. 
 The complete mathematical model is implemented in MATLAB/Simulink and can be connected to FlightGear for real-time three-dimensional visualization. An example of the resulting simulation is shown below.
 
-<p align="center">
-  <img src="Images/LoganSimulationExample.png" width="800">
-</p>
-
-<p align="center">
-  <em>Figure 2. Example of LOGAN simulation results and FlightGear visualization.</em>
-</p>
+![Example of LOGAN simulation results and FlightGear visualization.](Images/LoganSimulationExample.png)
 
 # Software Design
 
 The framework was developed in MATLAB/Simulink using a block-diagram-based modeling approach. Simulink provides a graphical environment for modeling and simulating dynamic systems, facilitating the interconnection of the different vehicle subsystems and their interactions.
 
-The integrated architecture combines the six-degree-of-freedom (6-DoF) flight dynamics model with aerodynamic, atmospheric, mass, scramjet, and flight-control models. The modular structure allows individual subsystems to be modified or replaced with limited impact on the remainder of the model, facilitating maintenance, model refinement, and future extensions. The main interactions among the subsystems are illustrated in Figure 3.
+The integrated architecture combines the six-degree-of-freedom (6-DoF) flight dynamics model with aerodynamic, atmospheric, mass, scramjet, and flight-control models. The modular structure allows individual subsystems to be modified or replaced with limited impact on the remainder of the model, facilitating maintenance, model refinement, and future extensions. The main interactions among the subsystems are illustrated below.
 
-<p align="center">
-  <img src="Images/Full_Diagram.png" width="900">
-</p>
-<p align="center">
-  <em>Figure 3. Full integrated architecture of the LOGAN Simulink model.</em>
-</p>
+![LOGAN Full integrated architecture.](Images/Full_Diagram.png)
 
 A main design trade-off is the dependence on MATLAB/Simulink. The graphical modeling environment facilitates subsystem integration, modification, and maintenance, but MATLAB requires a proprietary license. In addition, Simulink models may require conversion when opened in a different MATLAB release, which limits portability compared with implementations based on open-source environments.
 
