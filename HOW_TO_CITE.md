@@ -26,4 +26,4 @@ Moura, E.F. (2025) ‘A fully integrated thermodynamic and dynamic model for hyp
 
 For citation of the LOGAN software itself, please cite:
 
-Moura, E. (2026) ‘LOGAN Hypersonic Vehicle Model’. Zenodo. Available at: https://doi.org/10.5281/zenodo.21633571
+Moura, E. (2026) ‘LOGAN Hypersonic Vehicle Model’. Zenodo. Available at: https://doi.org/10.5281/zenodo.21633570
