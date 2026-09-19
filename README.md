@@ -7,7 +7,7 @@
 [![Status](https://img.shields.io/badge/Status-Active-2EAD4B)](https://github.com/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model)
 [![GitHub release](https://img.shields.io/github/v/release/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model)](https://github.com/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model/releases/latest)
 [![License](https://img.shields.io/github/license/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model)](https://github.com/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model/blob/main/LICENSE)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21633571.svg)](https://doi.org/10.5281/zenodo.21633571)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21633570.svg)](https://doi.org/10.5281/zenodo.21633570) 
 [![INPI](https://img.shields.io/badge/INPI-Registered%20Software-red)](https://revistas.inpi.gov.br/pdf/Programa_de_computador2892.pdf)
 [![View LOGAN Hypersonic Vehicle Model on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/184662-logan-hypersonic-vehicle-model)
 
