@@ -5,6 +5,8 @@
 <!-- badges: start -->
 
 [![Status](https://img.shields.io/badge/Status-Active-2EAD4B)](https://github.com/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model)
+[![MATLAB](https://img.shields.io/badge/MATLAB-R2024b-orange?logo=matlab)](https://www.mathworks.com/products/matlab.html)
+[![GitHub last commit](https://img.shields.io/github/last-commit/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model)](https://github.com/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model)
 [![GitHub release](https://img.shields.io/github/v/release/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model)](https://github.com/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model/releases/latest)
 [![License](https://img.shields.io/github/license/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model)](https://github.com/ermersonmoura/LOGAN-Hypersonic-Vehicle-Model/blob/main/LICENSE)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21633570.svg)](https://doi.org/10.5281/zenodo.21633570) 
